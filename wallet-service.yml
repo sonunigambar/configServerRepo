@@ -4,8 +4,4 @@ spring:
     consumer:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-  application:
-    name: wallet-service
-server:
-  port: 9096
 
