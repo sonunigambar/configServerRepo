@@ -1,0 +1,22 @@
+server:
+  port: '9095'
+resilience4j:
+  circuitbreaker:
+    instances:
+      walletService:
+        slidingWindowSize: 5
+        minimumNumberOfCalls: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+  retry:
+    instances:
+      walletServiceRetry:
+        max-attempts: 3
+        wait-duration: 200ms
+        retry-exceptions:
+          - org.springframework.web.client.RestClientException
+          - org.springframework.web.client.ResourceAccessException
+          - org.springframework.web.client.HttpServerErrorException
+          - java.lang.IllegalStateException
+
+
